@@ -1,0 +1,99 @@
+/////////////////////// expand simple
+unset TRUC
+TRUC=echo
+${TRUC}
+{{ un echo vide }}
+${TRUC} oui
+{{ oui }}
+TRUC=val
+echo ${TRUC}
+{{ val }}
+echo lol${TRUC}
+{{ lolval }}
+echo ${TRUC}lol
+{{ vallol }}
+echo ${TRUC}${TRUC}
+{{ valval }}
+
+/////////////////////// expand erreur
+echo ${L"O"L}
+{{ erreur sur ${L"O"L} }}
+echo ${L+=+&L}
+{{ erreur sur ${L+=+&L} }}
+echo ${L"}"OL}
+{{ erreur sur ${L"}"OL} }}
+
+/////////////////////// expand dollar simple
+unset TRUC
+unset TRUCok
+TRUC='val'
+echo $TRUC
+{{ val }}
+echo ok$TRUC
+{{ okval }}
+echo $TRUCok
+{{ un echo vide }}
+echo $TRUC$TRUC
+{{ valval }}
+echo $TRUC:TRUC
+{{ val:TRUC }}
+echo $TRUC:$TRUC
+{{ val:val }}
+
+/////////////////////// expand dollar simple erreur
+unset VIDE
+unset TRUC
+TRUC=val
+echo $VIDE
+{{ un echo vide }}
+echo $
+{{ $ }}
+echo $=
+{{ $= }}
+echo $=$TRUC
+{{ $=val }}
+echo $TRUC$
+{{ val$ }}
+
+/////////////////////// expand vide
+unset TRUC
+${TRUC} echo non
+{{ non }}
+echo non ${TRUC} oui
+{{ non<espace>oui }}
+echo non ${TRUC} | cat -e
+{{ non$ }}
+echo non "${TRUC}" oui
+{{ non<espace><espace>oui }}
+
+/////////////////////// expand plusieurs tokens
+unset MOT2PACE
+unset PACEPREF
+unset PACESUF
+MOT2PACE='mot  mot'
+PACEPREF='  mot'
+PACESUF='mot  '
+echo ${MOT2PACE}
+{{ mot<espace>mot }}
+echo "${MOT2PACE}"
+{{ mot<espace><escpace>mot }}
+echo oui${MOTDEPACE}non
+{{ ouimot<espace>motnon }}
+echo oui${PACEPREF}
+{{ oui<espace>mot }}
+echo ${PACESUF}non
+{{ mot<espace>non }}
+
+
+/////////////////////// expand avec spe char
+unset TRUC
+TRUC=';'
+echo oui ${TRUC} echo non
+{{ oui ; echo non }}
+TRUC='"'
+echo ${TRUC}
+{{ " }}
+echo "${TRUC}"
+{{ " }}
+echo ${TRUC} oui  non ${TRUC}
+{{ "<espace>oui<espace>non<espace>" }}
