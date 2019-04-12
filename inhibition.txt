@@ -1,0 +1,31 @@
+/////////////////////// tests basiques
+''
+{{ commande '' non trouvee }}
+'' echo oui
+{{ commande '' non trouvee }}
+echo lol '' mdr
+{{ lol<espace><escpace>mdr }}
+echo lol ' ' mdr
+{{ lol<espace><espace><escpace>mdr }}
+echo lol 'bonjour  non' mdr
+{{ lol bonjour<espace><espace>non mdr }}
+
+/////////////////////// tests inhibition chars spe
+echo \o\u\i
+{{ oui }}
+echo "\o\u\i"
+{{ \o\u\i }}
+echo "lol\"non"
+{{ lol"non }}
+echo 'oui"non'
+{{ oui"non }}
+echo '"'
+{{ " }}
+echo "'"
+{{ ' }}
+echo 'oui\'non
+{{ oui\non }}
+echo non"maisoui"enfin'jesais"pas'ok
+{{ nonmaisouienfinjesais"pasok }}
+
+/////////////////////// que faire d'autre ?
