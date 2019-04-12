@@ -1,0 +1,25 @@
+tester modif variable locale change variable globale (meme variable)
+checker export variable locale
+
+CDPATH
+
+redirection <&- >&- << HEREDOC (echappe et tout)
+
+pipe cat | cat | ls
+
+checker inhib imbrique dans substi
+checker \n supprimes dans substi si quoté
+
+alias recursif
+alias avec espace en fin
+alias apres redirection
+alias avec quote dedans et tout
+
+autocompletion direct au debut
+autocompletion apres un '>' sans commande
+autocompletion dans une substitution
+autocompletion apres assignation
+ajout des caracteres avec echappement apres autocompletion
+autocompletion sur commande de plusieures lignes
+
+hash et dossiers relatifs ?
