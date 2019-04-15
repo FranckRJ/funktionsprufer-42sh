@@ -9,11 +9,14 @@ pipe cat | cat | ls
 
 checker inhib imbrique dans substi
 checker \n supprimes dans substi si quoté
+checker expand dans substi faite au bon moment (et essayer de l'echapper)
 
 alias recursif
 alias avec espace en fin
 alias apres redirection
 alias avec quote dedans et tout
+alias dans une variable
+alias inhibe
 
 autocompletion direct au debut
 autocompletion apres un '>' sans commande
