@@ -1,5 +1,8 @@
 tester modif variable locale change variable globale (meme variable)
 checker export variable locale
+export -p affiche le nom / la valeur des variables avec echappement
+export a un affichage different selon si la variable a une valeur ou non (export VAL sans assignation etc)
+set ne doit pas afficher les variables exportes non initialisees
 
 CDPATH
 
@@ -8,7 +11,7 @@ redirection <&- >&- << HEREDOC (echappe et tout)
 pipe cat | cat | ls
 
 checker inhib imbrique dans substi
-checker \n supprimes dans substi si quoté
+checker \n finals supprimes dans substi si quoté
 checker expand dans substi faite au bon moment (et essayer de l'echapper)
 
 alias recursif
@@ -17,11 +20,14 @@ alias apres redirection
 alias avec quote dedans et tout
 alias dans une variable
 alias inhibe
+alias vide
+alias qui commence par un / des espaces
+alias affiche le nom / la valeur des alias avec echappement
 
 autocompletion direct au debut
 autocompletion apres un '>' sans commande
 autocompletion dans une substitution
-autocompletion apres assignation
+autocompletion apres assignation / double point
 ajout des caracteres avec echappement apres autocompletion
 autocompletion sur commande de plusieures lignes
 
