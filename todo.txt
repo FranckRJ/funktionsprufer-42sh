@@ -22,6 +22,7 @@ alias dans une variable
 alias inhibe
 alias vide
 alias qui commence par un / des espaces
+alias qui ne contient que un / des espaces
 alias affiche le nom / la valeur des alias avec echappement
 
 autocompletion direct au debut
@@ -30,5 +31,8 @@ autocompletion dans une substitution
 autocompletion apres assignation / double point
 ajout des caracteres avec echappement apres autocompletion
 autocompletion sur commande de plusieures lignes
+gestion correcte des liens symboliques lors de la recherche d'executable
+gestion correcte des liens symboliques pour les dossiers
+affichage d'un lien symbolique qui pointe vers rien du tout dans un autocompletion de fichier
 
 hash et dossiers relatifs ?
