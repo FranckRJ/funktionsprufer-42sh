@@ -28,4 +28,19 @@ echo 'oui\'non
 echo non"maisoui"enfin'jesais"pas'ok
 {{ nonmaisouienfinjesais"pasok }}
 
-/////////////////////// que faire d'autre ?
+/////////////////////// nouvelle ligne
+echo oui\
+non
+{{ ouinon }}
+echo "oui
+non"
+{{ oui<newline>non }}
+echo "oui\
+non"
+{{ ouinon }}
+echo 'oui
+non'
+{{ oui<newline>non }}
+echo 'oui\
+non'
+{{ oui\<newline>non }}

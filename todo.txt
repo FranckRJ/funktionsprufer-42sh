@@ -4,9 +4,15 @@ export -p affiche le nom / la valeur des variables avec echappement
 export a un affichage different selon si la variable a une valeur ou non (export VAL sans assignation etc)
 set ne doit pas afficher les variables exportes non initialisees
 
+echo -n
+
 CDPATH
+tester CDPATH avec lien symbolique
 
 redirection <&- >&- << HEREDOC (echappe et tout)
+redirection HEREDOC dans un FD different
+redirection en debut de commande
+redirection fifo
 
 pipe cat | cat | ls
 
@@ -36,3 +42,6 @@ gestion correcte des liens symboliques pour les dossiers
 affichage d'un lien symbolique qui pointe vers rien du tout dans un autocompletion de fichier
 
 hash et dossiers relatifs ?
+
+bultin test avec liens symboliques
+bonne gestion du ! dans test (pas d'expansion d'historique)
