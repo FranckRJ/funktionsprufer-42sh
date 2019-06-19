@@ -18,8 +18,9 @@ def get_next_alias_name(tab):
 
 
 def print_alias(name_tab, value_tab, nb_of_rec):
+    value_tab_in_str = ''.join(value_tab)
     print("alias " + ''.join(name_tab) + "=", end='')
-    print("'" + (str(''.join(value_tab) + ";") * nb_of_rec) + "'")
+    print("'" + (str(value_tab_in_str + ";") * (nb_of_rec - 1)) + value_tab_in_str + "'")
 
 
 def print_all_aliases(base_alias, base_size_of_aliases, max_nb_of_aliases, nb_of_rec_per_aliases, last_alias=None):
