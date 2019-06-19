@@ -63,19 +63,21 @@ def print_err_and_exit(msg):
     sys.exit(1)
 
 
-def get_str_opt_val(opt_name, def_val):
+def get_and_del_str_opt_val(opt_name, def_val):
     try:
         opt_idx = sys.argv.index(opt_name)
         if opt_idx < (len(sys.argv) - 1):
-            return sys.argv[opt_idx + 1]
+            val = sys.argv[opt_idx + 1]
+            del sys.argv[opt_idx:opt_idx + 2]
+            return val
         else:
             print_err_and_exit("error: invalid value for option " + opt_name)
     except ValueError:
         return def_val
 
 
-def get_int_opt_val(opt_name, def_val, can_be_zero_or_neg=True):
-    val = get_str_opt_val(opt_name, str(def_val))
+def get_and_del_int_opt_val(opt_name, def_val, can_be_zero_or_neg=True):
+    val = get_and_del_str_opt_val(opt_name, str(def_val))
 
     try:
         val = int(val)
@@ -98,10 +100,13 @@ if "-h" in sys.argv or "--help" in sys.argv:
     sys.exit()
 
 base_alias_name_param = "aliasbomb"
-base_size_of_aliases_param = get_int_opt_val("-s", 1, False)
-nb_of_aliases_param = get_int_opt_val("-n", 10000)
-nb_of_rec_per_aliases_param = get_int_opt_val("-r", 1, False)
-last_alias_param = get_str_opt_val("-l", "")
+base_size_of_aliases_param = get_and_del_int_opt_val("-s", 1, False)
+nb_of_aliases_param = get_and_del_int_opt_val("-n", 10000)
+nb_of_rec_per_aliases_param = get_and_del_int_opt_val("-r", 1, False)
+last_alias_param = get_and_del_str_opt_val("-l", "")
+
+if len(sys.argv) > 1:
+    print_err_and_exit("too many parameters")
 
 if not last_alias_param:
     last_alias_param = None
