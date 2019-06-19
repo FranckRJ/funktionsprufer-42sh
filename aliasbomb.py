@@ -52,7 +52,7 @@ def print_all_aliases(base_alias, base_size_of_aliases, max_nb_of_aliases, nb_of
 def print_usage():
     print("""
 usage: ./aliasbomb.py [-s base_size_of_aliases = 1]
-                      [-m max_nb_of_aliases = 10000 (-1 for all combinations of base_size_of_aliases)]
+                      [-n nb_of_aliases = 10000 (-1 for all combinations of base_size_of_aliases)]
                       [-r nb_of_rec_per_aliases = 1]
                       [-l last_alias_value = \"\"]
 """.strip("\n"))
@@ -99,7 +99,7 @@ if "-h" in sys.argv or "--help" in sys.argv:
 
 base_alias_name_param = "aliasbomb"
 base_size_of_aliases_param = get_int_opt_val("-s", 1, False)
-max_nb_of_aliases_param = get_int_opt_val("-m", 10000)
+nb_of_aliases_param = get_int_opt_val("-n", 10000)
 nb_of_rec_per_aliases_param = get_int_opt_val("-r", 1, False)
 last_alias_param = get_str_opt_val("-l", "")
 
@@ -108,7 +108,7 @@ if not last_alias_param:
 
 print_all_aliases(base_alias_name_param,
                   base_size_of_aliases_param,
-                  max_nb_of_aliases_param,
+                  nb_of_aliases_param,
                   nb_of_rec_per_aliases_param,
                   last_alias_param)
 print(base_alias_name_param)
