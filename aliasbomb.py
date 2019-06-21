@@ -106,7 +106,7 @@ nb_of_rec_per_aliases_param = get_and_del_int_opt_val("-r", 1, False)
 last_alias_param = get_and_del_str_opt_val("-l", "")
 
 if len(sys.argv) > 1:
-    print_err_and_exit("too many parameters")
+    print_err_and_exit("too many parameters: " + ' '.join(sys.argv[1:]))
 
 if not last_alias_param:
     last_alias_param = None
